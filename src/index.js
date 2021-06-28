@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const routes = require("./routes/index");
 
@@ -9,11 +10,18 @@ const routes = require("./routes/index");
 const app = express();
 
 // Server configuration
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 // Middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(
+    cors({
+        origin: "*",
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    })
+);
 
 // Routes
 app.use(routes);

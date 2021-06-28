@@ -18,6 +18,8 @@ publisher varchar(45)
 
 */
 
-connection.connect(err => { if (err) console.error(err); });
+connection.connect(err => {
+    if (err) console.error(err);
+});
 
 module.exports = connection;
