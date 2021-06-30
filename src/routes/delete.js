@@ -7,9 +7,9 @@ router.delete("/:id", (req, res) => {
     db.query(`DELETE FROM books WHERE id = ${id}`, (err) => {
         if (err) {
             console.log(err);
-            res.sendStatus(500);
+            res.status(500).json({ error: "Internal Server Error" });
         } else {
-            res.sendStatus(200);
+            res.status(200).send("Ok");
         }
     });
 });

@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
         if (result.length > 0) {
             res.json(result);
         } else {
-            res.sendStatus(404);
+            res.status(404).json({ error: "Not Found" });
         }
     });
 });
@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
         if (result.length > 0) {
             res.json(result);
         } else {
-            res.sendStatus(404);
+            res.status(404).json({ error: "Not Found" });
         }
 
     });
